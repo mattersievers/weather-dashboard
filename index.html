@@ -4,11 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Weather Dashboard</title>
 </head>
 <body>
-    
+    <header>
+      <h1>Weather Dashboard</h1>
+    </header>
+    <main class="d-flex justify-content-around">
+
+      <!-- Column that contains the search form and previous searched cities-->
+      <div class="col-3">
+        <form id="city-search-form" class="d-flex flex-column border-bottom border-dark">
+          <h2>Search for city:</h2>
+          <label for="city"></label>
+          <input type="text" id="input-city-name" class="form-control">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <div id="previous-city-holder">
+        </div>
+      </div>
+
+         <!-- Column that displays the weather-->
+         <div class="col-8">
+           <!-- today's weather -->
+           <div class="row" id="current-weather"></div>
+           <h2 id="city-name"></h2>
+           <ul id="city-info"></ul>
+
+           <div class="row" id="five-day-forecast">
+             <div id="day-one" class="col-2"></div>
+             <div id="day-two" class="col-2"></div>
+             <div id="day-three" class="col-2"></div>
+             <div id="day-four" class="col-2"></div>
+             <div id="day-five" class="col-2"></div>
+           </div>
+
+         </div>
+
+    </main>
+
   <script src="./assets/js/script.js"></script>
 </body>
 </html>
