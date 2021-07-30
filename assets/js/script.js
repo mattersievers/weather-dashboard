@@ -12,6 +12,7 @@ var submitButtonHandler = function(event) {
     inputEl.value = "";
     fiveDayEl.innerHTML ="";
     generateDailyWeather(inputCity);
+    saveCity(inputCity);
   } else {
       alert("Please enter a city.")
   }  
@@ -24,8 +25,7 @@ var generateDailyWeather = function(city) {
       if(response.ok) {
         response.json()
         .then(function(forecastData){
-            var iconType = forecastData.list[0].weather[0].icon;
-            var momentObj = moment(forecastData.list[0].dt_txt,'YYYY/MM/DD LT');
+            var iconType = forecastData.list[0].weather[0].icon;           
             var lat = forecastData.city.coord.lat;
             var lon = forecastData.city.coord.lon;
             //grab uvi info from different api
@@ -33,14 +33,15 @@ var generateDailyWeather = function(city) {
             .then(function(response){
                 response.json()
                 .then(function(uviData){
+                    console.log(uviData);
                     //create single day forcast
                     var headerEl = document.querySelector("#city-name");
-                    headerEl.innerHTML = forecastData.city.name +" ("+ momentObj.format('MM/DD/YY') + ")<img src='http://openweathermap.org/img/wn/"+iconType+"@2x.png'>";
+                    headerEl.innerHTML = forecastData.city.name +" ("+ moment().format('MM/DD/YY') + ")<img src='http://openweathermap.org/img/wn/"+iconType+"@2x.png'>";
                     var listEl = document.querySelector("#city-info");
                     listEl.innerHTML = 
-                    "<li>Temp: "+forecastData.list[0].main.temp+" °F</li>"+
-                    "<li>Wind: "+forecastData.list[0].wind.speed+" MPH</li>"+
-                    "<li>Humidity: "+forecastData.list[0].main.humidity+" %</li>"+
+                    "<li>Temp: "+uviData.current.temp+" °F</li>"+
+                    "<li>Wind: "+uviData.current.wind_speed+" MPH</li>"+
+                    "<li>Humidity: "+uviData.current.humidity+" %</li>"+
                     "<li>UV Index: <span>"+uviData.current.uvi+"</span></li>";
                     currentWeatherEl.style.border="1px solid black";
                     //fill in 5 day forcast
@@ -49,10 +50,10 @@ var generateDailyWeather = function(city) {
                     fiveHeadingEl.innerHTML = "<h3>5-Day Forecast:</h3>";
                     
                     //iterate over for loop 5 times, once for each day
-                    for (var i=7; i < forecastData.list.length + 1 ; i+=8)  {
+                    for (var i=0; i < forecastData.list.length ; i+=8)  {
                         var currentDay = moment(forecastData.list[i].dt_txt,'YYYY/MM/DD LT');
                         var containerEl = document.createElement("div");
-                        containerEl.classList = "col-2";
+                        containerEl.classList = "col-2 card five-day";
                         containerEl.innerHTML =
                         "<ul><li>"+currentDay.format('MM/DD/YYYY')+"</li>" +
                         "<li><img src='http://openweathermap.org/img/wn/"+forecastData.list[i].weather[0].icon+"@2x.png'></li>"+
@@ -73,10 +74,10 @@ var generateDailyWeather = function(city) {
     });  
 }
 
-var createDailyWeather = function(){
 
-};
-var createFutureWeather = function(){
+var saveCity = function(city) {
+ cities.push(city);
+ localStorage.setItem("cities",JSON.stringify(cities));
 
 };
 /*
