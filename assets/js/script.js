@@ -38,6 +38,7 @@ var generateDailyWeather = function(city,initial) {
                     var headerEl = document.querySelector("#city-name");
                     headerEl.innerHTML = forecastData.city.name +" ("+ moment().format('MM/DD/YY') + ")<img src='http://openweathermap.org/img/wn/"+iconType+"@2x.png'>";
                     var listEl = document.querySelector("#city-info");
+
                     listEl.innerHTML = 
                     "<li>Temp: "+uviData.current.temp+" °F</li>"+
                     "<li>Wind: "+uviData.current.wind_speed+" MPH</li>"+
@@ -82,7 +83,6 @@ var generateDailyWeather = function(city,initial) {
 
 
 var saveCity = function(city) {
- 
  //retrieve stored list
  var tempCities = JSON.parse(localStorage.getItem("cities"));
  if(!tempCities){
@@ -94,9 +94,9 @@ var saveCity = function(city) {
  
  cities.push(city);
 
- for (var i=0; i<cities.length-1; i++) {
+ for (var i=0; i < cities.length-1 ; i++) {
      if (city === cities[i]){
-       cities.splice(cities.length,1);   
+       cities.splice(cities.length-1,1);   
      }
  }
 
@@ -136,7 +136,7 @@ var colorCode = function(uvi) {
     var spanEl = document.querySelector("#color-span");
     uvi = Number(uvi)
     if (uvi >= 8) {
-        spanEl.classList.remove("green yellow");
+        spanEl.classList.remove("green","yellow");
         spanEl.classList = "red";
     } else if (uvi < 8 && uvi >=3) {
         spanEl.classList.remove("red","green");
