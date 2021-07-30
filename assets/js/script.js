@@ -134,18 +134,18 @@ loadCities();
 //color codes the UV index span element
 var colorCode = function(uvi) {
     var spanEl = document.querySelector("#color-span");
-    uvi = Number(uvi)
+    uvi = Number(uvi);
     if (uvi >= 8) {
         spanEl.classList.remove("green","yellow");
         spanEl.classList = "red";
-    } else if (uvi < 8 && uvi >=3) {
+    } else if (uvi < 8 && uvi >= 3) {
         spanEl.classList.remove("red","green");
         spanEl.classList = "yellow";     
-    } else if (uvi<3) {
-        spanEl.classList.remove("red", "yellow")
-        spanEl.classList = "green"
+    } else if (uvi < 3) {
+        spanEl.classList.remove("red", "yellow");
+        spanEl.classList = "green";
     }
-}
+};
 
 var previousCityHandler = function(event){
   event.preventDefault();
