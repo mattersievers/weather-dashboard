@@ -13,12 +13,20 @@ header h1 {
 }
 
 /*form style*/
+form { 
+    margin: 0 25px;
+}
 input{
     margin: 10px 0;
 }
 
 button{
     margin: 10px 0 20px 0;
+}
+
+#previous-city-holder {
+    margin: 0 auto;
+    width:70%;
 }
 
 /*today's weather style*/
@@ -41,6 +49,23 @@ ul{
         #120366
     );;
     color: white;
+    box-shadow: 2px 4px 4px gray;
 }   
 
 /*UV Index formatting*/
+.red {
+  background-color: red;
+  border-radius: 25%;
+}
+.yellow {
+  background-color: yellow;
+  border-radius: 25%;
+}
+.green {
+  background-color: green;
+  border-radius: 15%;
+}
+
+#color-span{
+    padding: 0 5px;
+}
