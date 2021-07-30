@@ -149,10 +149,11 @@ var colorCode = function(uvi) {
 
 var previousCityHandler = function(event){
   event.preventDefault();
+  if (event.target.matches(".btn")) {
   currentCity = event.target.textContent;
   fiveDayEl.innerHTML ="";
   generateDailyWeather(currentCity,false);
-
+  }
 }
 
 //event listener for Search button
