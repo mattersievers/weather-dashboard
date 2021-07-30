@@ -1,17 +1,13 @@
 # Weather Dashboard
 
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
+Search weather results by city and store up to 6 of your most recent search results for easy re-call as an easily accessible button.
 
-0 to 2: LOW
-3 to 7 : MODERATE
-8+: HIGH
+This program will give you the current, as well as a five day forecast including a colorized UV index dispay.
+
+This application is perfect for planning a trip or just comparing weather across several cities.
+
+This program uses a combination of HTML,CSS,JavaScript,Bootstrap,Moment.js, and retrieves informataion from the openweather.org API.
+
+[See what the weather is like now!](https://mattersievers.github.io/weather-dashboard/https://mattersievers.github.io/weather-dashboard/)
+
+![Homepage](assets/pics/homescreen.jpg)
