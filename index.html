@@ -12,33 +12,33 @@
     <header>
       <h1>Weather Dashboard</h1>
     </header>
-    <main class="d-flex justify-content-around">
+    <main class="d-flex justify-content-around flex-wrap">
 
       <!-- Column that contains the search form and previous searched cities-->
-      <div class="col-3">
+      <div class="col-md-3 col-12">
         <form id="city-search-form" class="d-flex flex-column border-bottom border-dark">
           <h2>Search for city:</h2>
           <label for="city"></label>
           <input type="text" id="input-city-name" class="form-control">
           <button type="submit" class="btn btn-primary">Search</button>
         </form>
-        <div id="previous-city-holder">
+        <div id="previous-city-holder" class="d-flex flex-column">
         </div>
       </div>
 
          <!-- Column that displays the weather-->
-         <div class="col-8">
-           <!-- today's weather -->
-           <div class="row" id="current-weather">
-            <h2 id="city-name"></h2>
-            <ul id="city-info"></ul>
-           </div>
-           
+        <div class="col-md-8 col-12">
+          <!-- today's weather -->
+          <div class="row" id="current-weather">
+          <h2 id="city-name"></h2>
+          <ul id="city-info"></ul>
+          </div>
+          
 
-           <div class="row" id="five-day-heading"></div>
-           <div class="row justify-content-between d-flex" id="five-day-forecast"></div>
+          <div class="row" id="five-day-heading"></div>
+          <div class="row justify-content-between d-flex flex-wrap" id="five-day-forecast"></div>
 
-         </div>
+        </div>
 
     </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
