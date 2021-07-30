@@ -8,6 +8,6 @@ This application is perfect for planning a trip or just comparing weather across
 
 This program uses a combination of HTML,CSS,JavaScript,Bootstrap,Moment.js, and retrieves informataion from the openweather.org API.
 
-[See what the weather is like now!](https://mattersievers.github.io/weather-dashboard/https://mattersievers.github.io/weather-dashboard/)
+[See what the weather is like now!](https://mattersievers.github.io/weather-dashboard/)
 
 ![Homepage](assets/pics/homescreen.jpg)
